@@ -6,7 +6,6 @@ build/
 *.log
 .DS_Store
 coverage/
-frontend/.vite/
 backend/generated/
 frontend/dist/
 *.tsbuildinfo
