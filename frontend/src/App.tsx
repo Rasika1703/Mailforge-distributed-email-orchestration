@@ -7,6 +7,7 @@ import { OverviewPage } from './pages/OverviewPage';
 import { ComposePage } from './pages/ComposePage';
 import { EmailListPage } from './pages/EmailListPage';
 import { SettingsPage } from './pages/SettingsPage';
+import { SendersPage } from './pages/SendersPage';
 
 export default function App(): JSX.Element {
   return (
@@ -19,7 +20,9 @@ export default function App(): JSX.Element {
             <Route path="compose" element={<ComposePage />} />
             <Route path="scheduled" element={<EmailListPage kind="scheduled" />} />
             <Route path="sent" element={<EmailListPage kind="sent" />} />
+            <Route path="/senders" element={<SendersPage />} />
             <Route path="settings" element={<SettingsPage />} />
+            
           
           </Route>
         </Route>
