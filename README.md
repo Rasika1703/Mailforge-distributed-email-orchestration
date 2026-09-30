@@ -1,4 +1,4 @@
-# MailForge – Distributed Email Orchestration Platform
+# MailForge – Distributed Email Orchestration Platform -Rasika
 
 MailForge is a full-stack email scheduling platform that allows users to configure SMTP sender accounts, import recipient lists, schedule email campaigns, control sending rates, and monitor delivery status.
 

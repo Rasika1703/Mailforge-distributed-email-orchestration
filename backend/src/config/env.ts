@@ -76,10 +76,12 @@ export const env = {
   googleClientId: optionalEnv('GOOGLE_CLIENT_ID'),
   googleClientSecret: optionalEnv('GOOGLE_CLIENT_SECRET'),
 
-  googleCallbackUrl: optionalEnv(
-    'GOOGLE_CALLBACK_URL',
-    'http://localhost:4000/api/auth/google/callback',
-  ),
+  googleCallbackUrl: isProd
+    ? requireEnv('GOOGLE_CALLBACK_URL')
+    : optionalEnv(
+        'GOOGLE_CALLBACK_URL',
+        'http://localhost:4000/api/auth/google/callback',
+      ),
 
   // Ethereal SMTP
   etherealHost: optionalEnv(
