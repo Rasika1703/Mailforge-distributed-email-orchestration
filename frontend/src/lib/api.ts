@@ -1,4 +1,3 @@
-
 import axios from 'axios';
 
 import type {
@@ -13,8 +12,12 @@ import type {
   EmailRow,
 } from '../types';
 
+const API_URL =
+  import.meta.env.VITE_API_URL ||
+  'http://localhost:4000';
+
 export const http = axios.create({
-  baseURL: '/api',
+  baseURL: `${API_URL}/api`,
   withCredentials: true,
   timeout: 15000,
 });
@@ -44,7 +47,7 @@ function unwrap<T>(
 }
 
 export const api = {
- 
+  
   me: () =>
     http
       .get<ApiEnvelope<User> | User>('/auth/me')
@@ -53,7 +56,7 @@ export const api = {
   logout: () =>
     http.post('/auth/logout'),
 
-  googleUrl: '/api/auth/google',
+  googleUrl: `${API_URL}/api/auth/google`,
 
 
   emails: (
@@ -89,7 +92,7 @@ export const api = {
           })
     ).then(unwrap<Paginated<EmailRow>>),
 
- 
+  
 
   senders: () =>
     http
@@ -137,14 +140,16 @@ export const api = {
       >('/health')
       .then(unwrap<HealthReport>),
 
+  
+
+  queueStats: () =>
+    http
+      .get<ApiEnvelope<QueueStats> | QueueStats>(
+        '/queue/stats',
+      )
+      .then(unwrap<QueueStats>),
 
 
- queueStats: () =>
-  http
-    .get<ApiEnvelope<QueueStats> | QueueStats>('/queue/stats')
-    .then(unwrap<QueueStats>),
-
- 
 
   slackStatus: () =>
     http
@@ -159,9 +164,9 @@ export const api = {
       .post('/slack/disconnect')
       .then(() => undefined),
 
-  slackConnectUrl: '/api/slack/connect',
+  slackConnectUrl:
+    `${API_URL}/api/slack/connect`,
 };
-
 
 
 export function errMsg(error: unknown): string {
@@ -169,7 +174,7 @@ export function errMsg(error: unknown): string {
     const response = error.response;
 
     if (!response) {
-      return 'The API could not be reached. Make sure the backend is running on port 4000.';
+      return 'The API could not be reached. Make sure the backend is running.';
     }
 
     const data = response.data as
@@ -209,4 +214,3 @@ export function errMsg(error: unknown): string {
     ? error.message
     : 'Unexpected error.';
 }
-
