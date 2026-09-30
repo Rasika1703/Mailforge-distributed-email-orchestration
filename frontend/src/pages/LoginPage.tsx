@@ -8,7 +8,6 @@ import {
   Network,
   ShieldCheck,
   Sparkles,
-  Zap,
 } from 'lucide-react';
 import { useAuth } from '../context/AuthContext';
 import { api } from '../lib/api';
