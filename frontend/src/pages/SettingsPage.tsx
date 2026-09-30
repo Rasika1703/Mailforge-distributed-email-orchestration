@@ -41,7 +41,7 @@ function Senders() {
     smtpHost: '',
     smtpPort: 587,
     smtpUser: '',
-    smtpPass: '',
+    smtpPassword: '',
   });
 
   const set = (
@@ -61,7 +61,7 @@ function Senders() {
         smtpHost: f.smtpHost,
         smtpPort: Number(f.smtpPort),
         smtpUser: f.smtpUser,
-        smtpPass: f.smtpPass,
+        smtpPassword: f.smtpPassword,
       }),
 
     onSuccess: () => {
@@ -76,7 +76,7 @@ function Senders() {
         smtpHost: '',
         smtpPort: 587,
         smtpUser: '',
-        smtpPass: '',
+        smtpPassword: '',
       });
     },
   });
@@ -171,9 +171,9 @@ function Senders() {
               type="password"
               autoComplete="new-password"
               className={input}
-              value={f.smtpPass}
+              value={f.smtpPassword}
               onChange={(event) =>
-                set('smtpPass', event.target.value)
+                set('smtpPassword', event.target.value)
               }
               placeholder="SMTP password"
             />

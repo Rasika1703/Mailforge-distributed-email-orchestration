@@ -17,7 +17,7 @@ type SenderForm = {
   smtpHost: string;
   smtpPort: number;
   smtpUser: string;
-  smtpPass: string;
+  smtpPassword: string;
 };
 
 const initialForm: SenderForm = {
@@ -25,7 +25,7 @@ const initialForm: SenderForm = {
   smtpHost: 'smtp.gmail.com',
   smtpPort: 587,
   smtpUser: '',
-  smtpPass: '',
+  smtpPassword: '',
 };
 
 export function SendersPage() {
@@ -108,7 +108,7 @@ export function SendersPage() {
       return;
     }
 
-    if (!form.smtpPass.trim()) {
+    if (!form.smtpPassword.trim()) {
       setError('SMTP password is required.');
       return;
     }
@@ -118,7 +118,7 @@ export function SendersPage() {
       smtpHost: form.smtpHost.trim(),
       smtpPort: Number(form.smtpPort),
       smtpUser: form.smtpUser.trim(),
-      smtpPass: form.smtpPass,
+      smtpPassword: form.smtpPassword,
     });
   };
 
@@ -223,11 +223,11 @@ export function SendersPage() {
 
             <Field
               label="SMTP password"
-              value={form.smtpPass}
+              value={form.smtpPassword}
               placeholder="App password"
               type="password"
               onChange={(value) =>
-                updateField('smtpPass', value)
+                updateField('smtpPassword', value)
               }
             />
 

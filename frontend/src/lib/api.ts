@@ -107,12 +107,12 @@ export const api = {
       .then(unwrap<Sender>),
 
   addSender: (body: {
-    email: string;
-    smtpHost: string;
-    smtpPort: number;
-    smtpUser: string;
-    smtpPass: string;
-  }) =>
+  email: string;
+  smtpHost: string;
+  smtpPort: number;
+  smtpUser: string;
+  smtpPassword: string;
+}) =>
     http
       .post<ApiEnvelope<Sender> | Sender>(
         '/senders',

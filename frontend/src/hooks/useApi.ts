@@ -91,7 +91,7 @@ export function useCreateSender() {
         smtpHost: input.smtpHost,
         smtpPort: input.smtpPort,
         smtpUser: input.smtpUser,
-        smtpPass: input.smtpPassword,
+        smtpPassword: input.smtpPassword,
       }),
 
     onSuccess: () => {
